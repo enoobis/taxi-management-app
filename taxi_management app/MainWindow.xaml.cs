@@ -57,7 +57,7 @@ namespace taxi_management_app
             {
                 if (headerPanel.Children.OfType<TextBlock>().FirstOrDefault()?.Text == "Помощь")
                 {
-                    string url = "https://raw.githubusercontent.com/enoobis/taxi-management-app/main/README.md";
+                    string url = "https://raw.githubusercontent.com/enoobis/taxi-management-app/master/README.md";
                     string markdownContent = await LoadMarkdownContent(url);
                     MarkdownViewer.NavigateToString(ConvertMarkdownToHtml(markdownContent));
                 }
