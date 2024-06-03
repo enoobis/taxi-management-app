@@ -1,0 +1,20 @@
+﻿<Window x:Class="taxi_management_app.AssignOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Назначить Заказ" Height="150" Width="400">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Выберите водителя:" Margin="5"/>
+            <ComboBox x:Name="DriverComboBox" DisplayMemberPath="FullName" Margin="5"/>
+
+            <CheckBox x:Name="PlannedCheckBox" Content="Запланированный заказ" Margin="5" 
+                      Checked="PlannedCheckBox_Checked" Unchecked="PlannedCheckBox_Unchecked"/>
+            <TextBox x:Name="PlannedTimeTextBox" ToolTip="Время заказа" Margin="5" Visibility="Collapsed"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                <Button Content="ОК" Click="OkButton_Click" Margin="5"/>
+                <Button Content="Отменить" Click="CancelButton_Click" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

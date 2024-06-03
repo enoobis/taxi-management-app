@@ -1,0 +1,49 @@
+﻿<Window x:Class="taxi_management_app.UpdateDriverWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Обновить Водителя" Height="555" Width="400">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="ФИО" Margin="5"/>
+            <TextBox x:Name="FullNameTextBox" ToolTip="ФИО" Margin="5"/>
+
+            <TextBlock Text="Марка" Margin="5"/>
+            <TextBox x:Name="CarBrandTextBox" ToolTip="Марка" Margin="5"/>
+
+            <TextBlock Text="Модель" Margin="5"/>
+            <TextBox x:Name="CarModelTextBox" ToolTip="Модель" Margin="5"/>
+
+            <TextBlock Text="Тип" Margin="5"/>
+            <ComboBox x:Name="CarTypeComboBox" Margin="5">
+                <ComboBoxItem Content="Стандарт"/>
+                <ComboBoxItem Content="Комфорт"/>
+                <ComboBoxItem Content="Бизнес"/>
+                <ComboBoxItem Content="Организация"/>
+            </ComboBox>
+
+            <TextBlock Text="Гос номер машины" Margin="5"/>
+            <TextBox x:Name="CarNumberTextBox" ToolTip="Гос номер машины" Margin="5"/>
+
+            <TextBlock Text="Номер телефона" Margin="5"/>
+            <TextBox x:Name="PhoneNumberTextBox" ToolTip="Номер телефона" Margin="5"/>
+
+            <TextBlock Text="Год выпуска" Margin="5"/>
+            <TextBox x:Name="YearTextBox" ToolTip="Год выпуска" Margin="5"/>
+
+            <TextBlock Text="Цвет" Margin="5"/>
+            <TextBox x:Name="ColorTextBox" ToolTip="Цвет" Margin="5"/>
+
+            <TextBlock Text="Статус" Margin="5"/>
+            <ComboBox x:Name="StatusComboBox" Margin="5">
+                <ComboBoxItem Content="Доступен"/>
+                <ComboBoxItem Content="На дежурстве"/>
+                <ComboBoxItem Content="На перерыве"/>
+            </ComboBox>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                <Button Content="ОК" Click="OkButton_Click" Margin="5"/>
+                <Button Content="Отменить" Click="CancelButton_Click" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

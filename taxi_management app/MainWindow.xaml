@@ -1,0 +1,305 @@
+﻿<Window x:Class="taxi_management_app.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:taxi_management_app"
+        xmlns:gmaps="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
+        mc:Ignorable="d"
+        Title="Taxi Dispatcher" Height="600" Width="1000">
+    <Grid>
+        <TabControl x:Name="MainTabControl">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="./images/phone.png" Height="20" Width="20"/>
+                        <TextBlock Text="Заказы" Margin="2,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64*"/>
+                        <ColumnDefinition Width="433*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Margin="10,10,10,10" Grid.ColumnSpan="2">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <Button Click="AddOrder_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/add.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Добавить Заказ" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="DeleteOrder_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/delete.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Удалить Заказ" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="UpdateOrder_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/update.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Обновить Заказ" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="ChangeOrderView_Click" Width="158" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/edit.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Изменить Просмотр" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="HighlightOrder_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/paint.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Выделить Заказ" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="CompleteOrder_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/complete.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Завершить Заказ" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="AssignOrder_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/assign.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Присвоить Заказ" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <TabControl Margin="0,0,0,10">
+                            <TabItem Header="Не присвоенные Заказы">
+                                <DataGrid x:Name="UnassignedOrdersGrid" AutoGenerateColumns="True" Margin="10"/>
+                            </TabItem>
+                            <TabItem Header="Текущие Заказы">
+                                <DataGrid x:Name="CurrentOrdersGrid" AutoGenerateColumns="True" Margin="10"/>
+                            </TabItem>
+                            <TabItem Header="Запланированные Заказы">
+                                <DataGrid x:Name="PlannedOrdersGrid" AutoGenerateColumns="True" Margin="10"/>
+                            </TabItem>
+                            <TabItem Header="Завершенные Заказы">
+                                <DataGrid x:Name="CompletedOrdersGrid" AutoGenerateColumns="True" Margin="10"/>
+                            </TabItem>
+                        </TabControl>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Click="FilterAllOrders_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/order.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Все Заказы" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="FilterStandardOrders_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/order.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Стандарт" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="FilterComfortOrders_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/order.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Комфорт" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="FilterBusinessOrders_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/order.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Бизнес" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="FilterOrganizationOrders_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/order.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Организация" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="./images/car.png" Height="20" Width="20"/>
+                        <TextBlock Text="Экипажи" Margin="2,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="23*"/>
+                        <ColumnDefinition Width="119*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Margin="10,10,10,10" Grid.ColumnSpan="2">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <Button Click="AddDriver_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/add.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Новый Водитель" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="DeleteDriver_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/delete.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Удалить Водителя" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="UpdateDriver_Click" Width="158" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/update.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Изменить Водителя" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="ChangeDriverView_Click" Width="169" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/edit.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Изменить Просмотр" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <TabControl Margin="0,0,0,10">
+                            <TabItem Header="Свободные">
+                                <DataGrid x:Name="AvailableDriversGrid" AutoGenerateColumns="True" Margin="10"/>
+                            </TabItem>
+                            <TabItem Header="На заказе">
+                                <DataGrid x:Name="OnDutyDriversGrid" AutoGenerateColumns="True" Margin="10"/>
+                            </TabItem>
+                            <TabItem Header="На перерыве">
+                                <DataGrid x:Name="OnBreakDriversGrid" AutoGenerateColumns="True" Margin="10"/>
+                            </TabItem>
+                        </TabControl>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Click="FilterAllDrivers_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/order.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Все Водители" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="FilterStandardDrivers_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/order.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Стандарт" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="FilterComfortDrivers_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/order.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Комфорт" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="FilterBusinessDrivers_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/order.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Бизнес" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="FilterOrganizationDrivers_Click" Width="130" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="./images/order.png" Width="16" Height="16"/>
+                                    <TextBlock Text="Организация" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="./images/map.png" Height="20" Width="20"/>
+                        <TextBlock Text="Карта" Margin="2,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <gmaps:GMapControl x:Name="MapControl" Loaded="MapControl_Loaded" Margin="10"/>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="./images/report.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                        <TextBlock Text="Отчет"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <TextBlock Text="Статистика Заказов" FontWeight="Bold" Margin="5"/>
+                        <DataGrid x:Name="OrdersReportGrid" AutoGenerateColumns="True" Height="400" Margin="5"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                            <Button Content="Удалить" Click="DeleteReport_Click" Width="80" Margin="5"/>
+                            <Button Content="Обновить" Click="RefreshReport_Click" Width="80" Margin="5"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="./images/switch.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                        <TextBlock Text="Журнал Звонков"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Margin="10">
+                    <DataGrid x:Name="CallLogGrid" AutoGenerateColumns="True" Margin="10"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Обновить" Click="RefreshCallLog_Click" Width="100" Margin="5"/>
+                        <Button Content="Изменить" Click="EditCallLog_Click" Width="100" Margin="5"/>
+                        <Button Content="Удалить" Click="DeleteCallLog_Click" Width="100" Margin="5"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="./images/chat.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                        <TextBlock Text="Чат"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="10">
+                    <TextBox x:Name="ChatBox" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Height="300" Margin="0,0,0,10"/>
+                    <TextBox x:Name="ChatInput" KeyDown="ChatInput_KeyDown" Height="30"/>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="./images/help.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                        <TextBlock Text="Помощь"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="10">
+                    <WebBrowser x:Name="MarkdownViewer"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="./images/settings.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                        <TextBlock Text="Настройки"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="10">
+                    <StackPanel Orientation="Vertical">
+                        <GroupBox Header="Общие Настройки" Margin="0,0,0,10">
+                            <StackPanel>
+                                <Label Content="Выбор языка:"/>
+                                <ComboBox x:Name="LanguageComboBox" SelectionChanged="LanguageComboBox_SelectionChanged">
+                                    <ComboBoxItem Content="Русский" IsSelected="True"/>
+                                    <ComboBoxItem Content="English"/>
+                                </ComboBox>
+                                <Label Content="Тема интерфейса:"/>
+                                <ComboBox x:Name="ThemeComboBox" SelectionChanged="ThemeComboBox_SelectionChanged">
+                                    <ComboBoxItem Content="Светлая" IsSelected="True"/>
+                                    <ComboBoxItem Content="Темная"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Настройки чата" Margin="0,0,0,10">
+                            <StackPanel>
+                                <Button x:Name="WhatsAppChatButton" Content="WhatsApp Чат" Click="WhatsAppChatButton_Click" Width="150" Margin="5"/>
+                                <Button x:Name="TelegramChatButton" Content="Telegram Чат" Click="TelegramChatButton_Click" Width="150" Margin="5"/>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

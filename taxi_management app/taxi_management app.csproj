@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>taxi_management_app</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\add.png" />
+    <None Remove="images\assign.png" />
+    <None Remove="images\car.png" />
+    <None Remove="images\chat.png" />
+    <None Remove="images\complete.png" />
+    <None Remove="images\delete.png" />
+    <None Remove="images\edit.png" />
+    <None Remove="images\help.png" />
+    <None Remove="images\map.png" />
+    <None Remove="images\order.png" />
+    <None Remove="images\paint.png" />
+    <None Remove="images\phone.png" />
+    <None Remove="images\report.png" />
+    <None Remove="images\settings.png" />
+    <None Remove="images\switch.png" />
+    <None Remove="images\update.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="GMap.Net" Version="1.0.1" />
+    <PackageReference Include="GMap.NET.Core" Version="1.7.5" />
+    <PackageReference Include="GMap.NET.Presentation" Version="1.7.5" />
+    <PackageReference Include="GMap.NET.WindowsForms" Version="1.7.5" />
+    <PackageReference Include="GMap.NET.WindowsPresentation" Version="1.7.5" />
+    <PackageReference Include="Markdig" Version="0.37.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\add.png" />
+    <Resource Include="images\assign.png" />
+    <Resource Include="images\car.png" />
+    <Resource Include="images\chat.png" />
+    <Resource Include="images\complete.png" />
+    <Resource Include="images\delete.png" />
+    <Resource Include="images\edit.png" />
+    <Resource Include="images\help.png" />
+    <Resource Include="images\map.png" />
+    <Resource Include="images\order.png" />
+    <Resource Include="images\paint.png" />
+    <Resource Include="images\phone.png" />
+    <Resource Include="images\report.png" />
+    <Resource Include="images\settings.png" />
+    <Resource Include="images\switch.png" />
+    <Resource Include="images\update.png" />
+  </ItemGroup>
+
+</Project>

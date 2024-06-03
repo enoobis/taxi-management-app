@@ -1,0 +1,21 @@
+﻿<Window x:Class="taxi_management_app.ChangeViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Change View" Height="350" Width="300">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Выберите столбцы для отображения" Margin="10"/>
+            <ListBox x:Name="ColumnList" SelectionMode="Multiple">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsVisible}" VerticalAlignment="Center" Checked="CheckBox_Changed" Unchecked="CheckBox_Changed"/>
+                            <TextBlock Text="{Binding Name}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="Сохранить" Click="SaveButton_Click" Margin="10"/>
+        </StackPanel>
+    </Grid>
+</Window>

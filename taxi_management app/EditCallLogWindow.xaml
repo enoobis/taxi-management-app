@@ -1,0 +1,21 @@
+﻿<Window x:Class="taxi_management_app.EditCallLogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Изменить запись" Height="300" Width="400">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock Text="Имя звонящего" />
+            <TextBox x:Name="CallerNameTextBox" />
+            <TextBlock Text="Телефон звонящего" Margin="0,10,0,0" />
+            <TextBox x:Name="CallerPhoneNumberTextBox" />
+            <TextBlock Text="Длительность звонка" Margin="0,10,0,0" />
+            <TextBox x:Name="CallDurationTextBox" />
+            <TextBlock Text="Заметки" Margin="0,10,0,0" />
+            <TextBox x:Name="CallNotesTextBox" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                <Button Content="Сохранить" Click="SaveButton_Click" Width="100" Margin="5"/>
+                <Button Content="Отмена" Click="CancelButton_Click" Width="100" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
