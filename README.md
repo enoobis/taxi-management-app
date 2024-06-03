@@ -8,11 +8,13 @@ This application was inspired by the "Taxi-Master" program.
 ## Screenshots
 
 ### Taxi-Master
-![image](https://github.com/enoobis/taxi-manager-app/assets/62465404/d07025e2-6ece-4df6-a588-6a05025fb496)
+![image](https://github.com/enoobis/taxi-management-app/assets/62465404/5247c4e2-58b6-44a1-957d-3730d023bd9e)
+
 
 ### Taxi Management App
-![image](https://github.com/enoobis/taxi-manager-app/assets/62465404/d45dff5e-f893-46a6-81d0-6d2bbe32d261)
-![image](https://github.com/enoobis/taxi-manager-app/assets/62465404/983e14ff-fcda-433b-87f0-c6cf914cb4d3)
+![image](https://github.com/enoobis/taxi-management-app/assets/62465404/8b6ce46a-a34a-4225-b3e7-a556e7cb8da5)
+![image](https://github.com/enoobis/taxi-management-app/assets/62465404/49afe8e7-b2c4-4a47-aea7-c1d584d1ef9d)
+
 
 
 ## Features
@@ -119,24 +121,45 @@ The main window contains tabs for managing orders, drivers, and viewing reports.
 
 ### Chat Tab
 
-- 
+Provides options for WhatsApp and Telegram integration.
+
+### Report 
+
+Displays various reports and statistics related to orders and drivers.
+Buttons to delete, update, and refresh the report data.
+
+![image](https://github.com/enoobis/taxi-management-app/assets/62465404/7d326e50-f2bd-4449-902c-c8553ce137af)
+
 
 ### Map Tab
 
-- Displays a map centered on Kyrgyzstan using GMap.NET. The map allows users to zoom and pan.
+Displays a map centered on Kyrgyzstan using GMap.NET. The map allows users to zoom and pan.
 
-![image](https://github.com/enoobis/taxi-manager-app/assets/62465404/3898a88c-062e-450e-ae34-668c354918b4)
+![image](https://github.com/enoobis/taxi-management-app/assets/62465404/f0c690b2-992a-4452-b30b-637801bb20e1)
+
 
 ### Call Log Tab
 
-- View the call log displaying all calls associated with orders.
+View the call log displaying all calls associated with orders.
+
+![image](https://github.com/enoobis/taxi-management-app/assets/62465404/a540a7c6-c5c4-43ff-9610-2890284595dc)
+
 
 ### Help
+
+Displays a markdown document from the repository for user assistance.
+
+![image](https://github.com/enoobis/taxi-management-app/assets/62465404/6b3f3e58-20a2-49af-8d78-4c7c82a3e453)
 
 
 ### Settings
 
-- View statistics and reports on orders. Reports include data on order types and their counts.
+Options for changing language (Russian, English).
+Options for switching between dark and light themes.
+Buttons for integrating WhatsApp and Telegram chats.
+
+![image](https://github.com/enoobis/taxi-management-app/assets/62465404/61c8e494-9140-4c54-a690-3eaaa097e9c6)
+
 
 ## Troubleshooting
 
