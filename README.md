@@ -7,7 +7,7 @@ This application was inspired by the "Taxi-Master" program.
 
 ## Video Tutorial
 
-(Setup)[https://www.youtube.com/watch?v=CODbg4kKZPg]
+[Setup](https://www.youtube.com/watch?v=CODbg4kKZPg)
 
 ## Screenshots
 
